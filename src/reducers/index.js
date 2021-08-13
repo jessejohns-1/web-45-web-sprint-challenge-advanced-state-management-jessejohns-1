@@ -1,6 +1,6 @@
 
 
-import {FETCH_START ,FETCH_SUCCESS , APPLY_SMURF ,FETCH_FAIL ,SET_ERROR } from './../actions';
+import {FETCH_START ,FETCH_SUCCESS,SET_ERROR  , APPLY_SMURF ,FETCH_FAIL } from './../actions';
 export const initialState = {
     smurf:[],
     isloading: false,
