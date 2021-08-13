@@ -5,7 +5,7 @@ export const fetchSmurfs = () => {
         dispatch(fetchStart());
         axios.get('http://localhost:3333/smurfs')
             .then(res => {
-                console.log("RESPONSE: ", res)
+
                 dispatch(fetchSuccess(res.data));
             })
             .catch(err => {
@@ -34,7 +34,7 @@ export const applySmurf = smurf => {
     return({type: APPLY_SMURF, payload: smurf});
 }
 
-export const ERROR = 'SET_ERROR';
-export const setError = err => {
-    return({type: ERROR, payload: err});
+export const SET_ERROR  = 'SET_ERROR';
+export const setError = error => {
+    return({type: SET_ERROR , payload: error});
 }

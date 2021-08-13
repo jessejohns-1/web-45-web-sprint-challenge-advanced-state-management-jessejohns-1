@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {connect} from "react-redux"
 
-import { setError,applySmurf } from '../actions';
+import { setError,applySmurf } from '../actions/index';
 const AddForm = (props) => {
     const [state, setState] = useState({
         name:"",
@@ -26,7 +26,7 @@ const AddForm = (props) => {
         }
     }
 
-    // const errorMessage = props.errorMessage;
+    const errorMessage = props.errorMessage;
 
     return(<section>
         <h2>Add Smurf</h2>
@@ -48,7 +48,7 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                props.errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">{props.errorMessage}</div>
+                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
             }
             <button>Submit Smurf</button>
         </form>
@@ -60,8 +60,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {setError,applySmurf})(AddForm);
-
+export default connect(mapStateToProps, { setError, applySmurf })(AddForm);
 //Task List:
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
 //2. Replace all instances of the errorMessage static variable with your error message state value. 
