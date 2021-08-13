@@ -1,6 +1,8 @@
 
 
+//imprting my actions
 import {FETCH_START ,FETCH_SUCCESS,SET_ERROR  , APPLY_SMURF ,FETCH_FAIL } from './../actions';
+//adding my array for smurfs and the loading boolean false/error message with empty string
 export const initialState = {
     smurf:[],
     isloading: false,
@@ -10,7 +12,7 @@ export const initialState = {
 
 
 
-
+//creating my reducer to have fetch, start, success, apply button, fail and error
 const reducer = (state = initialState, action)=>{
     switch (action.type) {
         case(FETCH_START):

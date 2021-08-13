@@ -1,6 +1,6 @@
 import React from 'react';
 import Smurf from './Smurf';
-
+//importing connect to make use of statetoprops
 import {connect} from "react-redux"
 
 
@@ -10,7 +10,7 @@ import {connect} from "react-redux"
     if (isLoading) {
         return <h1>Loading...</h1>;
     }
-
+    //using map to add a new smurf to a new div
     return(
         <div className="listContainer">
             {smurf.map(smurf => (
@@ -19,14 +19,12 @@ import {connect} from "react-redux"
         </div>);
         
 }
+
 const mapStateToProps = state =>{
-    return{
-        smurf:state.smurf,
-        isloading: state.isloading
-    }
+    return{ smurf:state.smurf,isloading: state.isloading }
 }
 
-
+//mapping smurf state and loading state connecting it to smurf list
 export default connect(mapStateToProps)(SmurfList);
 
 //Task List:

@@ -16,16 +16,17 @@ const AddForm = (props) => {
             [e.target.name]:e.target.value
         });
     }
+    //destructuring my error so i don't have to say .props
     const setError = props.setError;
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
             setError("Name, position and nickname fields are required.");
-        } else {
+        } else {//adding apply smurf state to button to add functionality of adding smurf
             props.applySmurf(state)
         }
     }
-
+    // made use of the destructing here in my return statement below
     const errorMessage = props.errorMessage;
 
     return(<section>
@@ -54,12 +55,13 @@ const AddForm = (props) => {
         </form>
     </section>);
 }
+//Extracting Data with mapStateToProps
 const mapStateToProps = state => {
     return {
         errorMessage: state.errorMessage
     }
 }
-
+//adding seterror and apply smurf so i can edit my state values
 export default connect(mapStateToProps, { setError, applySmurf })(AddForm);
 //Task List:
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.

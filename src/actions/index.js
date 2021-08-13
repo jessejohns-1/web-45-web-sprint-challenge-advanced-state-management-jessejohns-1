@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+//trying to thunk real hard about this axios. sorry for the pun
+//creating a axios function to fetch smurf using my fetch start success fail at the bottom
 export const fetchSmurfs = () => {
     return (dispatch => {
         dispatch(fetchStart());
@@ -13,7 +15,7 @@ export const fetchSmurfs = () => {
             })
     })
 }
-
+//setting up my action exports
 export const FETCH_START = 'FETCH_START';
 export const fetchStart = () => {
     return({type: FETCH_START});
